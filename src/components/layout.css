@@ -28,6 +28,13 @@ progress,
 video {
   display: inline-block;
 }
+main {
+  min-height: 100vh;
+}
+*, *:before, *:after {
+  box-sizing: border-box;
+}
+
 audio:not([controls]) {
   display: none;
   height: 0;
