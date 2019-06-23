@@ -53,7 +53,7 @@ class UserPreference extends Component {
   render() {
     const { userPreferences } = this.state
     const isButtonDisabled = userPreferences.length === 0
-
+    console.log(userPreferences)
     return (
       <PreferencePageWrapper>
         <MainHeader> What interests you? </MainHeader>{' '}
@@ -69,8 +69,9 @@ class UserPreference extends Component {
           ))}
         </PreferenceWrapper>
         <NavigateButton
-          link={'/'}
+          link={'/ArticlesPage/'}
           buttonText={"I'm Done. Let's Read"}
+          propsToPage={userPreferences}
           disabled={isButtonDisabled}
         />
       </PreferencePageWrapper>

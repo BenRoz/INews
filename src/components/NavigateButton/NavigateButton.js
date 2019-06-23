@@ -42,10 +42,10 @@ const Button = styled.button`
   }
 `
 
-function NavigateButton({ buttonText, link, disabled }) {
+function NavigateButton({ buttonText, link, disabled, propsToPage }) {
   return (
     <NavigateButtonWrapper>
-      <Link to={link}>
+      <Link state={{ preferences: propsToPage }} to={link}>
         <Button disabled={disabled}> {buttonText} </Button>{' '}
       </Link>
     </NavigateButtonWrapper>
