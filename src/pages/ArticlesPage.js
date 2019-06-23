@@ -1,4 +1,5 @@
 import React from 'react'
+import get from 'lodash/get'
 import ArticlesIndex from '../components/ArticlesIndex/ArticlesIndex'
 import Layout from '../components/layout'
 import SEO from '../components/seo'
@@ -6,7 +7,7 @@ import SEO from '../components/seo'
 const UserPreferencePage = ({ location }) => (
   <Layout>
     <SEO title="Articles" />
-    <ArticlesIndex preferences={location.state.preferences} />
+    <ArticlesIndex preferences={get(location, 'state.preferences')} />
   </Layout>
 )
 

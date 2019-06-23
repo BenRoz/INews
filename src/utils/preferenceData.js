@@ -14,7 +14,7 @@ const preferenceData = [
   },
   { id: '2222', name: 'Politics', bgColor: '#F6F1E4', icon: faLandmark },
   { id: '3333', name: 'Economics', bgColor: '#E8F3EC', icon: faHandHoldingUsd },
-  { id: '4444', name: 'Investments', bgColor: '#FCE7DD', icon: faChartLine },
+  { id: '4444', name: 'Business', bgColor: '#FCE7DD', icon: faChartLine },
 ]
 
 export default preferenceData

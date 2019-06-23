@@ -7,7 +7,8 @@ import styled from 'styled-components'
 import { NY_TIMES_QUERY_MAP, NY_TIMES_ID_TO_NAME } from '../../utils/QueryMaps'
 import ArticlesTopic from './ArticleTopic'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-
+import config from '../../utils/Config'
+import ApiCall from './ApiCall'
 const LoadingText = styled.h2`
   margin: 0;
   margin-left: ${({ theme }) => theme.unit * 5}px;
@@ -26,46 +27,35 @@ class ArticlesIndex extends Component {
   componentDidMount() {
     const { preferences } = this.props
     preferences.map(id => {
-      console.log(NY_TIMES_QUERY_MAP[id])
-      axios
-        .get(
-          `https://api.nytimes.com/svc/search/v2/articlesearch.json?api-key=Cb8mvIlF6sMQFLh0QQmhApBq4y9NQJUT&fq=news_desk:(${NY_TIMES_QUERY_MAP[id]})`
-        )
-        .then(response => {
-          const results = get(response, 'data.response.docs')
-          if (results && results.length > 0) {
-            this.setState(state => {
-              return {
-                ...state,
-                data: [
-                  ...state.data,
-                  {
-                    articles: results,
-                    title: NY_TIMES_ID_TO_NAME[id],
-                  },
-                ],
-              }
-            })
-          } else {
-          }
-        })
-        .catch(error => {
+      ApiCall(id).then(results => {
+        if (results && results.articles.length > 0) {
+          return this.setState(state => {
+            return {
+              ...state,
+              data: [...state.data, results],
+            }
+          })
+        } else {
           throw new Error(
             `Sorry we can not find results. Please try again soon`
           )
-          console.info(error)
-        })
+        }
+      })
     })
   }
 
   render() {
     const { preferences } = this.props
     const { data } = this.state
+    console.log(data, data.length > 0)
     if (data.length > 0) {
-      data.map(resultTopic => {
-        return resultTopic ? (
-          <ArticlesTopic key={resultTopic.title} resultTopic={resultTopic} />
-        ) : null
+      return data.map(resultTopic => {
+        console.log('resultTopic', resultTopic)
+        return (
+          resultTopic && (
+            <ArticlesTopic key={resultTopic.title} resultTopic={resultTopic} />
+          )
+        )
       })
     }
     return (
@@ -76,6 +66,7 @@ class ArticlesIndex extends Component {
           icon={faSpinner}
           spin
           size="3x"
+          color="green"
         />{' '}
         <LoadingText>We are loading your data</LoadingText>
       </Loading>
