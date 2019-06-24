@@ -18,7 +18,7 @@ const Button = styled.button`
   line-height: 50px;
   border-radius: 32px;
   background-color: #9218fd;
-  padding: 0 80px;
+  padding: 0 ${({ theme }) => theme.unit * 13}px;
   font-size: 14px;
   font-weight: bold;
   text-align: center;
@@ -50,6 +50,9 @@ function NavigateButton({ buttonText, link, disabled, propsToPage }) {
     </NavigateButtonWrapper>
   )
 }
+
+export default NavigateButton
+
 NavigateButton.propTypes = {
   buttonText: PropTypes.string.isRequired,
   link: PropTypes.string.isRequired,
@@ -61,4 +64,3 @@ NavigateButton.defaultProps = {
   disabled: false,
   propsToPage: null,
 }
-export default NavigateButton

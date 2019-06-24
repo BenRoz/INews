@@ -60,13 +60,11 @@ const IconWrapper = styled.div`
   width: 100%;
   height: 60px;
   position: relative;
-
   }
 `
 
 function PreferenceBox({ preferenceInfo, onPreferenceClick, isChosen }) {
   const { bgColor, name, icon, id } = preferenceInfo
-
   return (
     <BoxWrapper
       isChosen={isChosen}
@@ -91,6 +89,7 @@ function PreferenceBox({ preferenceInfo, onPreferenceClick, isChosen }) {
     </BoxWrapper>
   )
 }
+
 PreferenceBox.propTypes = {
   preferenceInfo: PropTypes.shape({
     bgColor: PropTypes.string.isRequired,

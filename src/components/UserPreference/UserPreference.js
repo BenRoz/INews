@@ -34,15 +34,13 @@ class UserPreference extends Component {
     userPreferences: [],
   }
 
-  onPreferenceClick = clickedOnId => () => {
+  onPreferenceBoxClick = boxId => () => {
     this.setState(state => {
       let updatedPreferenceList = ''
-      if (state.userPreferences.includes(clickedOnId)) {
-        updatedPreferenceList = state.userPreferences.filter(
-          id => id !== clickedOnId
-        )
+      if (state.userPreferences.includes(boxId)) {
+        updatedPreferenceList = state.userPreferences.filter(id => id !== boxId)
       } else {
-        updatedPreferenceList = [...state.userPreferences, clickedOnId]
+        updatedPreferenceList = [...state.userPreferences, boxId]
       }
       return {
         ...state,
@@ -53,7 +51,6 @@ class UserPreference extends Component {
   render() {
     const { userPreferences } = this.state
     const isButtonDisabled = userPreferences.length === 0
-    console.log(userPreferences)
     return (
       <PreferencePageWrapper>
         <MainHeader> What interests you? </MainHeader>{' '}
@@ -63,7 +60,7 @@ class UserPreference extends Component {
             <PreferenceBox
               key={preferenceInfo.id}
               preferenceInfo={preferenceInfo}
-              onPreferenceClick={this.onPreferenceClick}
+              onPreferenceClick={this.onPreferenceBoxClick}
               isChosen={userPreferences.includes(preferenceInfo.id)}
             />
           ))}
