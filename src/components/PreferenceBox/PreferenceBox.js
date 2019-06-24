@@ -10,7 +10,7 @@ const BoxWrapper = styled.div`
   background: ${({ bgColor }) => bgColor};
   padding: ${({ theme }) => theme.unit * 8}px;
   border: ${({ isChosen }) =>
-    isChosen ? `1px solid gold` : `1px solid transparent;`};
+    isChosen ? `3px solid gold` : `3px solid transparent;`};
   border-radius: 6px;
   max-width: 360px;
   margin: ${({ theme }) => theme.unit * 2}px;

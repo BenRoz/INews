@@ -22,4 +22,16 @@ function ApiCall(id) {
     })
 }
 
-export default ApiCall
+function prepareDataForSingleApiCall(preferenceIds) {
+  if (Array.isArray(preferenceIds) && preferenceIds.length > 0) {
+    return preferenceIds.reduce((acc, id, index) => {
+      if (index === preferenceIds.length - 1) {
+        return `${acc} "${NY_TIMES_ID_TO_NAME[id]}" )`
+      }
+      return `${acc} "${NY_TIMES_ID_TO_NAME[id]}",`
+    }, '(')
+  }
+  return null
+}
+
+export { ApiCall, prepareDataForSingleApiCall }

@@ -8,7 +8,8 @@ import { NY_TIMES_QUERY_MAP, NY_TIMES_ID_TO_NAME } from '../../utils/QueryMaps'
 import ArticlesTopic from './ArticleTopic'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import config from '../../utils/Config'
-import ApiCall from './ApiCall'
+import { ApiCall } from './ApiCall'
+
 const LoadingText = styled.h2`
   margin: 0;
   margin-left: ${({ theme }) => theme.unit * 5}px;
@@ -47,10 +48,8 @@ class ArticlesIndex extends Component {
   render() {
     const { preferences } = this.props
     const { data } = this.state
-    console.log(data, data.length > 0)
     if (data.length > 0) {
       return data.map(resultTopic => {
-        console.log('resultTopic', resultTopic)
         return (
           resultTopic && (
             <ArticlesTopic key={resultTopic.title} resultTopic={resultTopic} />

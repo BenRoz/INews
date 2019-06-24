@@ -17,7 +17,7 @@ const Button = styled.button`
   border: none;
   line-height: 50px;
   border-radius: 32px;
-  background-color: #bc18fd;
+  background-color: #9218fd;
   padding: 0 80px;
   font-size: 14px;
   font-weight: bold;
@@ -33,11 +33,10 @@ const Button = styled.button`
       cursor: default;
     `}
   :hover {
-    background-color: #9218fd;
     ${({ disabled }) =>
-      disabled &&
+      !disabled &&
       css`
-        background-color: #bc18fd;
+        background-color: #7018fd;
       `}
   }
 `
@@ -55,8 +54,11 @@ NavigateButton.propTypes = {
   buttonText: PropTypes.string.isRequired,
   link: PropTypes.string.isRequired,
   disabled: PropTypes.bool,
+  // eslint-disable-next-line react/forbid-prop-types
+  propsToPage: PropTypes.array,
 }
 NavigateButton.defaultProps = {
   disabled: false,
+  propsToPage: null,
 }
 export default NavigateButton
