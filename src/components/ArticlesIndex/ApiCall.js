@@ -10,7 +10,7 @@ function ApiCall(id) {
     )
     .then(res => {
       return {
-        articles: get(res, 'data.response.docs'),
+        articles: get(res, 'data.response.docs', []),
         title: NY_TIMES_ID_TO_NAME[id],
       }
     })

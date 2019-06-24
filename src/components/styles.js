@@ -6,6 +6,9 @@ export const MainHeader = styled.h2`
   text-align: center;
   color: #000000;
   margin-bottom: ${({ theme }) => theme.unit * 5}px;
+  ${({ theme }) => theme.mobile`
+      font-size: 48px;
+   `}
 `
 
 export const Paragraph = styled.p`

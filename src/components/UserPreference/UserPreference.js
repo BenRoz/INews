@@ -9,7 +9,6 @@ import { Paragraph, MainHeader } from '../styles'
 const PreferencePageWrapper = styled.div`
   width: 100%;
   height: 100%;
-  background-color: ${({ theme }) => theme.defaultBgColor};
   display: flex;
   flex-direction: column;
   justify-content: center;

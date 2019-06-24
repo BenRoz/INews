@@ -8,6 +8,9 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
+button {
+  outline: none !important;
+}
 article,
 aside,
 details,
@@ -30,6 +33,7 @@ video {
 }
 main {
   min-height: 100vh;
+  background: #f4f4f4;
 }
 *, *:before, *:after {
   box-sizing: border-box;

@@ -1,3 +1,10 @@
+import {
+  faBasketballBall,
+  faHandHoldingUsd,
+  faChartLine,
+  faLandmark,
+} from '@fortawesome/free-solid-svg-icons'
+
 const NY_TIMES_QUERY_MAP = {
   '1111': 'Sports',
   '2222': 'Politics',
@@ -11,4 +18,11 @@ const NY_TIMES_ID_TO_NAME = {
   '4444': 'Business',
 }
 
-export { NY_TIMES_QUERY_MAP, NY_TIMES_ID_TO_NAME }
+const NAME_TO_ICON = {
+  Sports: faBasketballBall,
+  Politics: faLandmark,
+  Investments: faHandHoldingUsd,
+  Business: faChartLine,
+}
+
+export { NY_TIMES_QUERY_MAP, NY_TIMES_ID_TO_NAME, NAME_TO_ICON }

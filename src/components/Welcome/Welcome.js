@@ -12,7 +12,6 @@ const WelcomeImageDiv = styled.img`
 `
 
 const WelcomeWrapper = styled.div`
-  background-color: ${({ theme }) => theme.defaultBgColor};
   display: flex;
   flex-direction: column;
   justify-content: center;
