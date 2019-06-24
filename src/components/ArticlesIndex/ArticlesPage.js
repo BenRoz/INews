@@ -22,7 +22,7 @@ const NavBarLogosWrapper = styled.div`
   justify-content: space-evenly;
   flex-direction: column;
   position: fixed;
-  right: 12px;
+  right: 15px;
   top: 50%;
   transform: translateY(-50%);
 `
@@ -42,6 +42,7 @@ class NavBarLogos extends Component {
               key={`${topicResults.title}1`}
               className="icon"
               icon={NAME_TO_ICON[title]}
+              style={{ cursor: 'pointer' }}
               size="1x"
               onClick={this.navigateToTitle(title)}
             />
